@@ -1,43 +1,34 @@
 class Room
 
-  attr_reader(:name, :song, :guests)
+  attr_reader(:name, :songs, :guests)
 
-  def initialize(name, songs, guests)
+  def initialize(name)
     @name = name
-    @songs = [song]
+    @songs = []
     @guests = []
     
   end
 
-  def check_in_one_guest(guest)
-    
-     @guests << guest
-    
+  def check_in_one_guest(a_guest)
+     @guests << a_guest
    end
 
-#   def add_songs_to_room(song)
-# # binding.pry
-#     song.each do |songs|
-#       @songs << songs
-#     end
-
-    
+   def add_a_song(a_song)
+    @songs << a_song
   end
 
-
-  # def check_in_guests(name)
-  #   @guest = @guests.each do |guest| 
-  #     @guests << guest.name
+  # def add_songs_to_room(all_songs)
+  #     @songs << all_songs
+  #     @songs.flatten! 
+  #     return @songs.map! { |item| item.artist && item.title }
   #   end
-  #   return @guest
-  # end
 
-  # def check_in_guests(name)
-  #   @guests.each { |guest| @guest << guest.name}
-  #   end
+    
       
-  # def check_in_guests(name)
-  #   @guest << name
-  #   @guest.each
-  # end
+  def check_in_more_than_one_guest(all_guests)
+    @guests << all_guests
+    @guests.flatten!
+    return @guests.map! { |guest| guest.name}
+  end
 
+end
